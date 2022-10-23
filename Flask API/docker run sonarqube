@@ -1,2 +1,0 @@
-need to run command 
-docker run -d --network nexus_nexus --rm --name sonarqube -p 0.0.0.0:9000:9000 sonarqube 
