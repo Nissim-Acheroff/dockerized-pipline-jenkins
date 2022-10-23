@@ -1,0 +1,14 @@
+node {
+    git 'https://github.com/Nissim-Acheroff/dockerized-pipline-jenkins.git'
+
+    stage('Build') {
+        sh 'cd Flask API' 
+        sh 'docker build --target builder -t builder-image  -f Dockerfile-pipelines .'
+    }
+    stage('linting') {
+        sh 'docker build --target linting -t linting-image  -f Dockerfile-pipelines .'
+    }
+    stage('server-image') {
+        sh 'docker build --target server-image -t server-image  -f Dockerfile-pipelines .'
+    }
+}
